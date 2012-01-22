@@ -294,7 +294,7 @@
 
 	<repositories>
 		<repository>
-			<id>xtend2utils-dependencies</id>
+			<id>local-repository</id>
 			<layout>p2</layout>
 			<url>file:../../releng/org.xtext.example.repository/target/repository</url>
 		</repository>

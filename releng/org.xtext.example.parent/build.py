@@ -14,7 +14,7 @@ def createLocalRepositoryIfNotUpToDate ():
 	   fileIsNewerThan ('../../releng/org.xtext.example.targetplatform/xtextexample.target', 
 					    '../../releng/org.xtext.example.repository/target/category.xml')): 
 		print 'Rebuild of repository required'
-		subprocess.call ("cd ../../releng/org.xtext.example.repository && mvn package", shell=True)
+		subprocess.call ("cd ../../releng/org.xtext.example.repository.parent && mvn package", shell=True)
 	else:
 		print 'Repository is up to date'
 

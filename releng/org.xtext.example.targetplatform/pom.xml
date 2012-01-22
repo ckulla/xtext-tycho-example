@@ -4,8 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.xtext.example</groupId>
 	<artifactId>org.xtext.example.targetplatform</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<parent>
+		<groupId>org.xtext.example</groupId>
+		<artifactId>org.xtext.example.repository.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../../releng/org.xtext.example.repository.parent/pom.xml</relativePath>
+	</parent>
 	<packaging>pom</packaging>
+		
 	<build>
 		<plugins>
 			<plugin>
