@@ -11,7 +11,7 @@ def fileIsNewerThan(file, dependentFile):
 def createLocalRepositoryIfNotUpToDate ():
 	if (fileIsNewerThan ('../../releng/org.xtext.example.repository/category.xml', 
 	                    '../../releng/org.xtext.example.repository/target/category.xml') or
-	   fileIsNewerThan ('../../releng/org.xtext.example.targetplatform/xtend2utils.target', 
+	   fileIsNewerThan ('../../releng/org.xtext.example.targetplatform/xtextexample.target', 
 					    '../../releng/org.xtext.example.repository/target/category.xml')): 
 		print 'Rebuild of repository required'
 		subprocess.call ("cd ../../releng/org.xtext.example.repository && mvn package", shell=True)

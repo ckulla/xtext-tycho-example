@@ -10,6 +10,6 @@
 		<relativePath>../../releng/org.xtext.example.parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>org.xtext.example.feature.sdk</artifactId>
+	<artifactId>org.xtext.example.mydsl.feature.source</artifactId>
 	<packaging>eclipse-feature</packaging>
 </project>
