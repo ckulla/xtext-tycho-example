@@ -12,14 +12,17 @@
 
 	<artifactId>org.xtext.example.mydsl</artifactId>
 	<packaging>eclipse-plugin</packaging>
-    <build>
-        <sourceDirectory>src</sourceDirectory>    
-        <resources>
-                <resource>
-                        <directory>${project.build.directory}/mwe2</directory>
-                </resource>
-        </resources>        
-        <plugins>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>${project.build.directory}/mwe2</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- Clean the src-gen folders of the ui and test project. The Xtext generator 
+				will create files in those directories during generation. The ui and test 
+				project will *not* clean those directories later. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -29,8 +32,8 @@
 						<fileset>
 							<directory>${basedir}/../org.xtext.example.mydsl.ui/src-gen</directory>
 							<includes>
-									<include>**</include>
-							</includes>                            
+								<include>**</include>
+							</includes>
 							<excludes>
 								<exclude>.gitignore</exclude>
 							</excludes>
@@ -38,84 +41,84 @@
 						<fileset>
 							<directory>${basedir}/../../tests/org.xtext.example.mydsl.tests/src-gen</directory>
 							<includes>
-									<include>**</include>
-							</includes>                            
+								<include>**</include>
+							</includes>
 							<excludes>
 								<exclude>.gitignore</exclude>
 							</excludes>
 						</fileset>
 					</filesets>
-				</configuration>					
-			</plugin>        
-            <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <executions>
-                            <execution>
-                                    <id>copy-resources</id>
-                                    <phase>initialize</phase>
-                                    <goals>
-                                            <goal>copy-resources</goal>
-                                    </goals>
-                                    <configuration>
-                                            <outputDirectory>${project.build.directory}/mwe2</outputDirectory>
-                                            <resources>
-                                                    <resource>
-                                                            <directory>src</directory>
-                                                            <includes>
-                                                                    <include>**/*.mwe2</include>
-                                                                    <include>**/*.xtext</include>
-                                                            </includes>
-                                                    </resource>
-                                            </resources>
-                                    </configuration>
-                            </execution>
-                    </executions>
-            </plugin>        
+				</configuration>
+			</plugin>
 			<plugin>
-               <groupId>org.fornax.toolsupport</groupId>
-               <artifactId>fornax-oaw-m2-plugin</artifactId>
-               <executions>
-                   <execution>
-                       <phase>generate-sources</phase>
-                       <goals>
-                               <goal>run-workflow</goal>
-                       </goals>
-                       <configuration>
-                             <workflowEngine>mwe2</workflowEngine>
-                             <workflowDescriptor>org.xtext.example.mydsl.GenerateMyDsl</workflowDescriptor>
-                             <timestampFileName>generator.timestamp</timestampFileName>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/mwe2</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src</directory>
+									<includes>
+										<include>**/*.mwe2</include>
+										<include>**/*.xtext</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.fornax.toolsupport</groupId>
+				<artifactId>fornax-oaw-m2-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run-workflow</goal>
+						</goals>
+						<configuration>
+							<workflowEngine>mwe2</workflowEngine>
+							<workflowDescriptor>org.xtext.example.mydsl.GenerateMyDsl</workflowDescriptor>
+							<timestampFileName>generator.timestamp</timestampFileName>
 							<checkFilesets>
-							      <checkFileset>
-							        <directory>${basedir}</directory>
-							        <includes>
-							          <include>src/org/xtext/example/mydsl/*.xtext</include>
-							          <include>src/org/xtext/example/mydsl/*.mwe2</include>
-							        </includes>
-							      </checkFileset>
-							    </checkFilesets>                               
-                               <jvmSettings>
-                                       <fork>true</fork>
-                                       <jvmArgs>
-                                               <jvmArg>-Xms100m</jvmArg>
-                                               <jvmArg>-Xmx700m</jvmArg>
-                                               <jvmArg>-XX:MaxPermSize=128m</jvmArg>
-                                       </jvmArgs>
-                               </jvmSettings>
-                       </configuration>
-                   </execution>
-               </executions>
-            </plugin>        
-            <plugin>
-                <groupId>org.eclipse.xtend2</groupId>
-                <artifactId>xtend-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+								<checkFileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>src/org/xtext/example/mydsl/*.xtext</include>
+										<include>src/org/xtext/example/mydsl/*.mwe2</include>
+									</includes>
+								</checkFileset>
+							</checkFilesets>
+							<jvmSettings>
+								<fork>true</fork>
+								<jvmArgs>
+									<jvmArg>-Xms100m</jvmArg>
+									<jvmArg>-Xmx700m</jvmArg>
+									<jvmArg>-XX:MaxPermSize=128m</jvmArg>
+								</jvmArgs>
+							</jvmSettings>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend2</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
