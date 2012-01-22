@@ -36,6 +36,7 @@
                                                             <directory>src</directory>
                                                             <includes>
                                                                     <include>**/*.mwe2</include>
+                                                                    <include>**/*.xtext</include>
                                                             </includes>
                                                     </resource>
                                             </resources>
@@ -60,7 +61,8 @@
 							      <checkFileset>
 							        <directory>${basedir}</directory>
 							        <includes>
-							          <include>model/*</include>
+							          <include>src/org/xtext/example/mydsl/*.xtext</include>
+							          <include>src/org/xtext/example/mydsl/*.mwe2</include>
 							        </includes>
 							      </checkFileset>
 							    </checkFilesets>                               

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.xtext.example.feature_0.1.0.qualifier.jar" id="org.xtext.example.feature" version="0.1.0.qualifier">
+   <feature url="features/org.xtext.example.mydsl.feature_0.1.0.qualifier.jar" id="org.xtext.example.mydsl.feature" version="0.1.0.qualifier">
       <category name="xtextexample"/>
    </feature>
-   <feature url="features/org.xtext.example.feature.sdk_0.1.0.qualifier.jar" id="org.xtext.example.feature.sdk" version="0.1.0.qualifier">
+   <feature url="features/org.xtext.example.mydsl.feature.sdk_0.1.0.qualifier.jar" id="org.xtext.example.mydsl.feature.sdk" version="0.1.0.qualifier">
       <category name="xtextexample"/>
    </feature>
-   <feature url="features/org.xtext.example.feature.source_0.1.0.qualifier.jar" id="org.xtext.example.feature.source" version="0.1.0.qualifier">
+   <feature url="features/org.xtext.example.mydsl.feature.source_0.1.0.qualifier.jar" id="org.xtext.example.mydsl.feature.source" version="0.1.0.qualifier">
       <category name="xtextexample"/>
    </feature>
-   <category-def name="xtextexample" label="Xtext Example"/>
+   <category-def name="xtextexample" label="Xtext MyDsl Example"/>
 </site>

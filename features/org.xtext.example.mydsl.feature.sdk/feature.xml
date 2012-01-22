@@ -22,11 +22,11 @@
    </url>
 
    <includes
-         id="org.xtext.example.feature"
+         id="org.xtext.example.mydsl.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.xtext.example.feature.source"
+         id="org.xtext.example.mydsl.feature.source"
          version="0.0.0"/>
 
    <plugin

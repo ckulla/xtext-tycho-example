@@ -24,8 +24,8 @@
 		<module>../../tests/org.xtext.example.mydsl.tests</module>
 		<module>../../features/org.xtext.example.mydsl.feature</module>
 		<module>../../features/org.xtext.example.mydsl.feature.source</module>
-		<module>../../features/oorg.xtext.example.mydsl.feature.sdk</module>
-		<module>../../releng/org.xtext.example.mydsl.updatesite</module>
+		<module>../../features/org.xtext.example.mydsl.feature.sdk</module>
+		<module>../../releng/org.xtext.example.updatesite</module>
 	</modules>
 			
 	<build>
