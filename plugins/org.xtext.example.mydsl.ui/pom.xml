@@ -15,6 +15,13 @@
     <build>
         <sourceDirectory>src</sourceDirectory>    
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration combine.self="override">
+				</configuration>					
+			</plugin>        		
             <plugin>
                 <groupId>org.eclipse.xtend2</groupId>
                 <artifactId>xtend-maven-plugin</artifactId>
