@@ -13,11 +13,6 @@
 	<groupId>org.xtext.example</groupId>
 	<artifactId>org.xtext.example.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
-		
-	<properties>
-		<tycho-version>0.14.0-SNAPSHOT</tycho-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>		
-	</properties>
 	
 	<build>
 		<plugins>
