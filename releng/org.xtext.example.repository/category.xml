@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.pde_3.7.1.r37x_v20110810-0800-7b7qFVtFEx2XnmZ4jlM5mjM.jar" id="org.eclipse.pde" version="3.7.1.r37x_v20110810-0800-7b7qFVtFEx2XnmZ4jlM5mjM">
+   <feature url="features/org.eclipse.sdk_3.7.2.r37x_v20111213-7Q7xALDPb32vCjY6UACVPdFTz-icPtJkUadz0lMmk4z-8.jar" id="org.eclipse.sdk" version="3.7.2.r37x_v20111213-7Q7xALDPb32vCjY6UACVPdFTz-icPtJkUadz0lMmk4z-8">
       <category name="3rdparty"/>
    </feature>
    <feature url="features/de.itemis.xtext.antlr.sdk_2.0.0.v201108011202.jar" id="de.itemis.xtext.antlr.sdk" version="2.0.0.v201108011202">
@@ -9,35 +9,15 @@
    <feature url="features/org.eclipse.emf.mwe2.language.sdk_2.2.0.v201112071250.jar" id="org.eclipse.emf.mwe2.language.sdk" version="2.2.0.v201112071250">
       <category name="3rdparty"/>
    </feature>
-   <feature url="features/org.eclipse.emf.mwe2.language.sdk.source_2.2.0.v201112071250.jar" id="org.eclipse.emf.mwe2.language.sdk.source" version="2.2.0.v201112071250">
-      <category name="3rdparty"/>
-   </feature>
    <feature url="features/org.eclipse.emf.mwe2.runtime.sdk_2.2.0.v201112070431.jar" id="org.eclipse.emf.mwe2.runtime.sdk" version="2.2.0.v201112070431">
-      <category name="3rdparty"/>
-   </feature>
-   <feature url="features/org.eclipse.emf.mwe2.runtime.sdk.source_2.2.0.v201112070431.jar" id="org.eclipse.emf.mwe2.runtime.sdk.source" version="2.2.0.v201112070431">
-      <category name="3rdparty"/>
-   </feature>
-   <feature url="features/org.eclipse.emf.sdk_2.7.1.v20110913-1526.jar" id="org.eclipse.emf.sdk" version="2.7.1.v20110913-1526">
-      <category name="3rdparty"/>
-   </feature>
-   <feature url="features/org.eclipse.emf.transaction.sdk_1.5.1.v20110823-1800-777T19A_WsXmjNatPxcrPm1rOKlH.jar" id="org.eclipse.emf.transaction.sdk" version="1.5.1.v20110823-1800-777T19A_WsXmjNatPxcrPm1rOKlH">
-      <category name="3rdparty"/>
-   </feature>
-   <feature url="features/org.eclipse.emf.workspace_1.5.1.v20110823-1800-37708s734D3C7D3CCC1.jar" id="org.eclipse.emf.workspace" version="1.5.1.v20110823-1800-37708s734D3C7D3CCC1">
-      <category name="3rdparty"/>
-   </feature>
-   <feature url="features/org.eclipse.sdk_3.7.1.r37x_v20110728-7Q7xAEDDePtVvBAYYD3z-il0ox7CoGe6mz-B8FDdVn0YR.jar" id="org.eclipse.sdk" version="3.7.1.r37x_v20110728-7Q7xAEDDePtVvBAYYD3z-il0ox7CoGe6mz-B8FDdVn0YR">
       <category name="3rdparty"/>
    </feature>
    <feature url="features/org.eclipse.xxtext.sdk_2.2.1.v201112130541.jar" id="org.eclipse.xtext.sdk" version="2.2.1.v201112130541">
       <category name="3rdparty"/>
    </feature>
-
    <category-def name="3rdparty" label="Third Party">
       <description>
          Dependent features to work with the Xtext example.
       </description>
    </category-def>
-
 </site>
