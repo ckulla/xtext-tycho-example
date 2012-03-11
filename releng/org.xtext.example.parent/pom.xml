@@ -26,6 +26,7 @@
 		<module>../../features/org.xtext.example.mydsl.feature.source</module>
 		<module>../../features/org.xtext.example.mydsl.feature.sdk</module>
 		<module>../../releng/org.xtext.example.updatesite</module>
+		<module>../../releng/org.xtext.example.product</module>
 	</modules>
 			
 	<build>
