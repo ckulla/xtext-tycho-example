@@ -30,20 +30,18 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
 
    <features>
       <feature id="org.xtext.example.mydsl.feature" version="0.1.0.qualifier"/>
-      <feature id="org.eclipse.sdk" version="0.0.0"/>
+      <feature id="org.eclipse.sdk" version="4.3.0.v20130605-2000"/>
    </features>
 
-  <configurations>
+   <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
    </configurations>
 

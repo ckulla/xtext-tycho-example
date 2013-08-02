@@ -12,5 +12,4 @@
 
 	<artifactId>org.xtext.example.updatesite</artifactId>
 	<packaging>eclipse-repository</packaging>
-	
 </project>

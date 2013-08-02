@@ -13,26 +13,35 @@
 	<artifactId>org.xtext.example.product</artifactId>
 	<packaging>eclipse-repository</packaging>
 	<build>
-	  <plugins>
-	    <plugin>
-	      <groupId>org.eclipse.tycho</groupId>
-	      <artifactId>tycho-p2-director-plugin</artifactId>
-	      <version>${tycho-version}</version>
-	      <executions>
-	        <execution>
-	          <id>materialize-products</id>
-	          <goals>
-	            <goal>materialize-products</goal>
-	          </goals>
-	        </execution>
-	        <execution>
-	          <id>archive-products</id>
-	          <goals>
-	            <goal>archive-products</goal>
-	          </goals>
-	        </execution>
-	      </executions>
-	    </plugin>
-	  </plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<products>
+						<product>
+							<id>org.xtext.example.product</id>
+							<archiveFileName>org.xtext.example.product-${project.version}</archiveFileName>
+							<!--  archiveFileName>org.xtext.example.product-${unqualifiedVersion}.${buildQualifier}</archiveFileName-->
+						</product>
+					</products>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

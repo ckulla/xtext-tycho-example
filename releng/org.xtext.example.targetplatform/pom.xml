@@ -4,39 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.xtext.example</groupId>
 	<artifactId>org.xtext.example.targetplatform</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
 	<parent>
 		<groupId>org.xtext.example</groupId>
-		<artifactId>org.xtext.example.repository.parent</artifactId>
+		<artifactId>org.xtext.example.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>../../releng/org.xtext.example.repository.parent/pom.xml</relativePath>
+		<relativePath>../../releng/org.xtext.example.parent/pom.xml</relativePath>
 	</parent>
-	<packaging>pom</packaging>
-		
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.3</version>
-				<executions>
-					<execution>
-						<id>attach-artifacts</id>
-						<phase>package</phase>
-						<goals>
-							<goal>attach-artifact</goal>
-						</goals>
-						<configuration>
-							<artifacts>
-								<artifact>
-									<file>xtextexample.target</file>
-									<type>target</type>
-									<classifier>xtextexample</classifier>
-								</artifact>
-							</artifacts>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+	<packaging>eclipse-target-definition</packaging>
 </project>

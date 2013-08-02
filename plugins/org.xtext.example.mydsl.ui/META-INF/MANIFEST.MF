@@ -21,5 +21,6 @@ Import-Package: org.apache.log4j,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.xtext.example.mydsl.ui.contentassist,
  org.xtext.example.mydsl.ui.contentassist.antlr,
- org.xtext.example.mydsl.ui.internal
+ org.xtext.example.mydsl.ui.internal,
+ org.xtext.example.mydsl.ui.quickfix
 Bundle-Activator: org.xtext.example.mydsl.ui.internal.MyDslActivator
