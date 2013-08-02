@@ -10,6 +10,8 @@ This is a demo project showing how to build an Xtext project with tycho / maven.
     
 This project uses the Eclipse Kepler release (4.3) as it's target platform.
 
+Build Status: [![Build Status](https://travis-ci.org/ckulla/xtext-tycho-example.png)]
+
 ## Quick Start
 
 The project is build by:
