@@ -1,6 +1,6 @@
-# Xtext Maven Example
+# Xtext Tycho Example
 
-This is a demo project showing how to build an Xtext project with maven.
+This is a demo project showing how to build an Xtext project with tycho / maven.
 
 ## Quick Start
 
