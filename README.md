@@ -7,7 +7,7 @@ This is a demo project showing how to build an Xtext project with tycho / maven.
 * maven clean removes all previously generated artifacts
 * Running the xtend2 compiler from maven
 * Creating executable eclipse products containing the Xtext editor
-* Setting up continuous integration build with travis (http://travis-ci.org), Build Status: ![Build Status](https://travis-ci.org/ckulla/xtext-tycho-example.png)
+* Setting up continuous integration build with travis (http://travis-ci.org), Build Status: ![Build Status](https://api.travis-ci.org/ckulla/xtext-tycho-example.png?branch=master)
  
 This project uses the Eclipse Kepler release (4.3) as it's target platform.
 
