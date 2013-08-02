@@ -1,0 +1,2 @@
+language: java
+script: cd releng/org.xtext.example.parent && mvn package
