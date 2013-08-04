@@ -36,8 +36,8 @@
 
 		<!-- repositories -->
 		<module>../../releng/org.xtext.example.updatesite</module>
-		<module>../../releng/org.xtext.example.standalone</module>
-		<module>../../releng/org.xtext.example.product</module>
+		<module>../../releng/org.xtext.example.mydsl.standalone</module>
+		<module>../../releng/org.xtext.example.mydsl.product</module>
 	</modules>
 
 	<build>
