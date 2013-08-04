@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <bundle id="org.xtext.example.mydsl" version="0.1.0.qualifier"/>
+   <category-def name="xtextexample" label="Xtext MyDsl Example"/>
+</site>

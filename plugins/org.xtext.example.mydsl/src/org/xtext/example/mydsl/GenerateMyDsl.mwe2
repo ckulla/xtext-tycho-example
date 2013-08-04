@@ -14,9 +14,6 @@ Workflow {
     bean = StandaloneSetup {
         scanClassPath = true
         platformUri = "${runtimeProject}/.."
-        // The following two lines can be removed, if Xbase is not used.
-        registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
-        registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
     }
 
     component = DirectoryCleaner {
@@ -41,12 +38,7 @@ Workflow {
             fragment = grammarAccess.GrammarAccessFragment {}
 
             // generates Java API for the generated EPackages
-            fragment = ecore.EcoreGeneratorFragment {
-            // referencedGenModels = "
-            //  platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel,
-            //  platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel
-            // "
-            }
+            fragment = ecore.EcoreGeneratorFragment {}
 
             // Serializer 2.0
             fragment = serializer.SerializerFragment {
@@ -80,7 +72,9 @@ Workflow {
 
             // scoping and exporting API
             fragment = scoping.ImportNamespacesScopingFragment {}
+            
             fragment = exporting.QualifiedNamesFragment {}
+            
             fragment = builder.BuilderIntegrationFragment {}
 
             // generator API
@@ -97,6 +91,7 @@ Workflow {
 
             // outline API
             fragment = outline.OutlineTreeProviderFragment {}
+            
             fragment = outline.QuickOutlineFragment {}
 
             // quickfix API
@@ -119,12 +114,6 @@ Workflow {
 
             // rename refactoring
             fragment = refactoring.RefactorElementNameFragment {}
-
-            // provides the necessary bindings for java types integration
-            fragment = types.TypesGeneratorFragment {}
-
-            // generates the required bindings only if the grammar inherits from Xbase
-            fragment = xbase.XbaseGeneratorFragment {}
 
             // provides a preference page for template proposals
             fragment = templates.CodetemplatesGeneratorFragment {}

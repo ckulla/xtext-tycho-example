@@ -9,11 +9,76 @@
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../../releng/org.xtext.example.parent/pom.xml</relativePath>
 	</parent>
-
 	<artifactId>org.xtext.example.product</artifactId>
 	<packaging>eclipse-repository</packaging>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+					</dependency-resolution>
+					<filters>
+						<!--  make sure we do not include the jdt -->
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.core</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.debug</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.launching</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.ui</id>
+							<removeAll />
+						</filter>
+						<!--  mwe is only required for code generation during the build -->
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe.core</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe.utils</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe2.lib</id>
+							<removeAll />
+						</filter>
+						<!--  emf codegen is only required for code generation during the build -->
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.codegen</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.codegen.ecore</id>
+							<removeAll />
+						</filter>
+						<!--  xtext generator is only required for code generation during the build -->
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.xtext.generator</id>
+							<removeAll />
+						</filter>
+					</filters>
+				</configuration>
+			</plugin>		
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
@@ -37,7 +102,7 @@
 						<product>
 							<id>org.xtext.example.product</id>
 							<archiveFileName>org.xtext.example.product-${project.version}</archiveFileName>
-							<!--  archiveFileName>org.xtext.example.product-${unqualifiedVersion}.${buildQualifier}</archiveFileName-->
+							<!-- archiveFileName>org.xtext.example.product-${unqualifiedVersion}.${buildQualifier}</archiveFileName -->
 						</product>
 					</products>
 				</configuration>

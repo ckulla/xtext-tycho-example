@@ -19,17 +19,27 @@
 	</properties>
 
 	<modules>
+		<!-- targetplatform, later enabled by target-platform-configuration -->
 		<module>../../releng/org.xtext.example.targetplatform</module>
+
+		<!-- plugins -->
 		<module>../../plugins/org.xtext.example.mydsl</module>
 		<module>../../plugins/org.xtext.example.mydsl.ui</module>
+
+		<!-- tests -->
 		<module>../../tests/org.xtext.example.mydsl.tests</module>
+
+		<!-- features -->
 		<module>../../features/org.xtext.example.mydsl.feature</module>
 		<module>../../features/org.xtext.example.mydsl.feature.source</module>
 		<module>../../features/org.xtext.example.mydsl.feature.sdk</module>
+
+		<!-- repositories -->
 		<module>../../releng/org.xtext.example.updatesite</module>
+		<module>../../releng/org.xtext.example.standalone</module>
 		<module>../../releng/org.xtext.example.product</module>
 	</modules>
-			
+
 	<build>
 		<plugins>
 			<plugin>
@@ -85,7 +95,7 @@
 						</artifact>
 					</target>
 				</configuration>
-			</plugin>			
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
@@ -112,14 +122,19 @@
 						<source>6.0</source>
 						<target>6.0</target>
 						<excludeResources>
-				            <exludeResource>**/*.xtend</exludeResource>
-			        	</excludeResources>						
+							<exludeResource>**/*.xtend</exludeResource>
+						</excludeResources>
 					</configuration>
 				</plugin>
 				<!-- enable source bundle generation -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-repository</artifactId>
 					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
@@ -160,8 +175,8 @@
 							<fileset>
 								<directory>${basedir}/xtend-gen</directory>
 								<includes>
-										<include>**</include>
-								</includes>                            
+									<include>**</include>
+								</includes>
 								<excludes>
 									<exclude>.gitignore</exclude>
 								</excludes>
@@ -169,8 +184,8 @@
 							<fileset>
 								<directory>${basedir}/src-gen</directory>
 								<includes>
-										<include>**</include>
-								</includes>                            
+									<include>**</include>
+								</includes>
 								<excludes>
 									<exclude>.gitignore</exclude>
 								</excludes>
@@ -178,8 +193,8 @@
 							<fileset>
 								<directory>${basedir}/emf-gen</directory>
 								<includes>
-										<include>**</include>
-								</includes>                            
+									<include>**</include>
+								</includes>
 								<excludes>
 									<exclude>.gitignore</exclude>
 								</excludes>
@@ -187,14 +202,14 @@
 							<fileset>
 								<directory>${basedir}/test-gen</directory>
 								<includes>
-										<include>**</include>
-								</includes>                            
+									<include>**</include>
+								</includes>
 								<excludes>
 									<exclude>.gitignore</exclude>
 								</excludes>
 							</fileset>
 						</filesets>
-					</configuration>					
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -213,7 +228,7 @@
 								</sources>
 								<sources>
 									<source>${project.build.directory}/emf-gen</source>
-								</sources>								
+								</sources>
 							</configuration>
 						</execution>
 					</executions>
@@ -227,11 +242,18 @@
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>2.4.2</version>
-					<configuration>
-						<!-- need to prefix by basedir to generate to currently built module -->
-						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
-					</configuration>
-				</plugin>				
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+							<configuration>
+								<!-- need to prefix by basedir to generate to currently built module -->
+								<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>

@@ -5,6 +5,7 @@
 <unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.2.v201306120542"/>
 <unit id="org.eclipse.sdk.feature.group" version="4.3.0.v20130605-2000"/>
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130604-2047"/>
+<unit id="org.eclipse.egit.feature.group" version="3.0.0.201306101825-r"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 </locations>
