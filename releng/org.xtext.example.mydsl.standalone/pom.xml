@@ -52,6 +52,33 @@
 					<includeAllDependencies>true</includeAllDependencies>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<jar destfile="target/mydsl-${project.version}.pre.jar">
+									<zipgroupfileset dir="target/repository/plugins">
+										<include name ="**/*.jar"/>
+									</zipgroupfileset>
+								</jar>
+								<jar destfile="target/mydsl-${project.version}.jar">
+									<zipfileset excludes="**/*.MF, META-INF/**, OSGI-INF/**, .settings/**, about_files/**, ant_tasks/**, bundle-source/**. etc/**, *.*" src="target/mydsl-${project.version}.pre.jar" />
+									<fileset dir=".">
+										<filename name="log4j.properties"/>
+										<filename name="plugin.properties"/>
+									</fileset>
+								</jar>								
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
