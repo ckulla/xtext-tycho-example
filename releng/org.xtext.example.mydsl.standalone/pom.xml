@@ -59,15 +59,19 @@
 						<phase>package</phase>
 						<configuration>
 							<target>
+								<!--  create a uber jar from all jar in the plugins directory -->
 								<jar destfile="target/mydsl-${project.version}.pre.jar">
 									<zipgroupfileset dir="target/repository/plugins">
 										<include name ="**/*.jar"/>
 									</zipgroupfileset>
 								</jar>
+								<!-- wipe out all unwanted files --> 
 								<jar destfile="target/mydsl-${project.version}.jar">
 									<zipfileset excludes="**/*.MF, META-INF/**, OSGI-INF/**, .settings/**, about_files/**, ant_tasks/**, bundle-source/**. etc/**, *.*" src="target/mydsl-${project.version}.pre.jar" />
-									<fileset dir=".">
+									<fileset dir="${basedir}">
 										<filename name="log4j.properties"/>
+									</fileset>
+									<fileset dir="${basedir}">
 										<filename name="plugin.properties"/>
 									</fileset>
 								</jar>								
