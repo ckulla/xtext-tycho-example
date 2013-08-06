@@ -1,2 +1,2 @@
 language: java
-script: cd releng/org.xtext.example.parent && mvn package
+script: cd releng/org.xtext.example.parent && mvn integration-test

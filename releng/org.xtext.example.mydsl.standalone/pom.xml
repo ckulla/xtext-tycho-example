@@ -56,25 +56,56 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>package</id>
 						<phase>package</phase>
 						<configuration>
 							<target>
-								<!--  create a uber jar from all jar in the plugins directory -->
+								<!-- create a uber jar from all jar in the plugins directory -->
 								<jar destfile="target/mydsl-${project.version}.pre.jar">
 									<zipgroupfileset dir="target/repository/plugins">
-										<include name ="**/*.jar"/>
+										<include name="**/*.jar" />
 									</zipgroupfileset>
 								</jar>
-								<!-- wipe out all unwanted files --> 
+								<!-- wipe out all unwanted files -->
 								<jar destfile="target/mydsl-${project.version}.jar">
-									<zipfileset excludes="**/*.MF, META-INF/**, OSGI-INF/**, .settings/**, about_files/**, ant_tasks/**, bundle-source/**. etc/**, *.*" src="target/mydsl-${project.version}.pre.jar" />
+									<zipfileset
+										excludes="**/*.MF, META-INF/**, OSGI-INF/**, .settings/**, about_files/**, ant_tasks/**, bundle-source/**. etc/**, *.*"
+										src="target/mydsl-${project.version}.pre.jar" />
 									<fileset dir="${basedir}">
-										<filename name="log4j.properties"/>
+										<filename name="log4j.properties" />
 									</fileset>
 									<fileset dir="${basedir}">
-										<filename name="plugin.properties"/>
+										<filename name="plugin.properties" />
 									</fileset>
-								</jar>								
+								</jar>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>integration-test</id>
+						<phase>integration-test</phase>
+						<configuration>
+							<target>
+								<echo message="Running MyDslC" />
+								<exec executable="java" failonerror="true">
+									<arg value="-cp" />
+									<arg value="target/mydsl-${project.version}.jar" />
+									<arg value="org.xtext.example.mydsl.generator.MyDslC" />
+									<arg value="-outputDir" />
+									<arg value="target/" />
+									<arg
+										value="../../tests/org.xtext.example.mydsl.tests/models/test.mydsl" />
+								</exec>
+								<fail message="Generated file target/test.txt not found">
+									<condition>
+										<not>
+											<available file="target/test.txt" />
+										</not>
+									</condition>
+								</fail>
 							</target>
 						</configuration>
 						<goals>
