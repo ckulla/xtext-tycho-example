@@ -8,7 +8,7 @@ This is a demo project showing how to build an Xtext project with tycho / maven.
 * Running the xtend2 compiler from maven
 * Creating an executable eclipse product containing the Xtext editor (without the JDT)
 * Setting up continuous integration build with travis (http://travis-ci.org), Build Status: ![Build Status](https://api.travis-ci.org/ckulla/xtext-tycho-example.png?branch=master)
- * Specifiying file encoding on the command line
+* Specify the file encoding on the command line
  
 This project uses the Eclipse Kepler release (4.3) as it's target platform.
 
