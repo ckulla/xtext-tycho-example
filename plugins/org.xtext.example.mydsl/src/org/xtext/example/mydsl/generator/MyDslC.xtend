@@ -34,25 +34,27 @@ class MyDslC {
 		System.exit (run(args))
 	}
 
-	def static int run(String[] args) {
-		val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration().
-			createChildInjector(new MyDslCModule);
-		val generator = injector.getInstance(MyDslC)
-		generator.generate(args)
-	}
-
-	def int generate(String[] args) {
-		if (options.parse(args)) {
-			if (options.hasHelp) {
+	def static int run(String... args) {
+		val options = new CommandLineOptions
+		if (options.parse(args)) {		
+			if (options.hasHelp) {	
 				options.printHelpMessage
 				return 0
 			} else {
-				val resources = readResources ()
-				if (validateResources(resources)) {
-					generate(resources)			
-					return 0
-				}
+				val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration(options)
+				val generator = injector.getInstance(MyDslC)
+				return generator.run()			
 			}
+		} else {
+			return 1
+		}
+	}
+
+	def int run () {
+		val resources = readResources ()
+		if (validateResources(resources)) {
+			generate(resources)			
+			return 0
 		}
 		return 1
 	}
@@ -79,4 +81,5 @@ class MyDslC {
 			generator.doGenerate(it, fileAccess)
 		]
 	}
+	
 }

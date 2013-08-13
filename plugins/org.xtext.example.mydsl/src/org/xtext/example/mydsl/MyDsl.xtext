@@ -7,3 +7,7 @@ Model:
 	
 Greeting:
 	'Hello' name=ID '!';
+
+// redefinition of ID to demonstrate setting of the encoding when reading files containing german umlauts 
+terminal ID : ('a'..'z'|'A'..'Z'|'Ä'|'Ö'|'Ü'|'ä'|'ö'|'ü'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'Ä'|'Ö'|'Ü'|'ä'|'ö'|'ü')*;
+	

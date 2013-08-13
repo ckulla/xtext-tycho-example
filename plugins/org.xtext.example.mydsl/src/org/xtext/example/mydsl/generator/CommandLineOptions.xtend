@@ -1,6 +1,5 @@
 package org.xtext.example.mydsl.generator
 
-import com.google.inject.Singleton
 import java.io.File
 import java.util.Collection
 import org.apache.commons.cli.GnuParser
@@ -8,13 +7,11 @@ import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
 import org.apache.commons.cli.ParseException
 import org.apache.commons.cli.Option
+import static org.xtext.example.mydsl.generator.CommandLineOptionsJava.*
 
-@Singleton
 class CommandLineOptions {
 	
 	val options = new Options 
-	
-	val outputDirOption = CommandLineOptionsJava.outputDirOption
 	
 	var File outputPath
 	
@@ -22,9 +19,12 @@ class CommandLineOptions {
 	
 	var hasHelp = false
 	
+	var String encoding = System.getProperty("file.encoding")
+	
 	new() {
 		options.addOption(new Option( "help", "print this message" ))
-		options.addOption(outputDirOption)
+		options.addOption(CommandLineOptionsJava.encodingOption)
+		options.addOption(CommandLineOptionsJava.outputDirOption)
 	}
 	
 	def parse(String[] args) {
@@ -34,6 +34,9 @@ class CommandLineOptions {
 			hasHelp = line.hasOption("help")
 			if (hasHelp)
 				return true
+			if (line.hasOption ("encoding")) {
+				encoding = line.getOptionValue ("encoding")
+			}
 			if (line.getOptionValue(outputDirOption.getOpt()) != null) {
 				outputPath = new File(line.getOptionValue(outputDirOption.getOpt()))
 				if (outputPath.exists) {
@@ -76,6 +79,10 @@ class CommandLineOptions {
 	
 	def File getOutputPath() {
 		outputPath
+	}
+	
+	def String getEncoding () {
+		encoding
 	}
 	
 }

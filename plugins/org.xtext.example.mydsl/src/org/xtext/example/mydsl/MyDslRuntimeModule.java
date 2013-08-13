@@ -3,9 +3,40 @@
  */
 package org.xtext.example.mydsl;
 
+import org.eclipse.xtext.parser.IEncodingProvider;
+import org.eclipse.xtext.service.DispatchingProvider;
+import org.xtext.example.mydsl.generator.CommandLineOptions;
+import org.xtext.example.mydsl.generator.FixedEncodingProvider;
+
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class MyDslRuntimeModule extends org.xtext.example.mydsl.AbstractMyDslRuntimeModule {
 
+	CommandLineOptions commandLineOptions;
+	
+	public MyDslRuntimeModule () {}
+
+	public MyDslRuntimeModule (CommandLineOptions commandLineOptions) {
+		this.commandLineOptions = commandLineOptions;
+	}
+
+	@Override
+	public void configureRuntimeEncodingProvider(Binder binder) {
+		if (commandLineOptions != null && commandLineOptions.getEncoding() != null) {
+			binder.bind(IEncodingProvider.class).annotatedWith(DispatchingProvider.Runtime.class).to(FixedEncodingProvider.class);
+			binder.bind(String.class).annotatedWith(Names.named(FixedEncodingProvider.ENCODING)).toInstance(commandLineOptions.getEncoding());
+		} else { 
+			super.configureRuntimeEncodingProvider(binder);
+		}
+	}
+	
+	public void configureCommandlineOptions(Binder binder) {
+		if (commandLineOptions != null) {
+			binder.bind (CommandLineOptions.class).toInstance (commandLineOptions);
+		}
+	}
 }

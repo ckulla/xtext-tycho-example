@@ -14,27 +14,38 @@ class MyDslCTest {
 
 	@Test
 	def void testOk () {
-		assertEquals (0, MyDslC.run(<String>newArrayList("-outputDir", temporaryFolder.root.path, "models/test.mydsl")))
+		assertEquals (0, MyDslC.run("-outputDir", temporaryFolder.root.path, "models/test.mydsl"))
 		assertTrue (new File (temporaryFolder.root, "test.txt").exists)
+	}		
+
+	@Test
+	def void testUtf8Ok () {
+		assertEquals (0, MyDslC.run("-encoding", "UTF-8", "-outputDir", temporaryFolder.root.path, "models/testUTF8.mydsl"))
+		assertTrue (new File (temporaryFolder.root, "testUTF8.txt").exists)
 	}		
 	
 	@Test
+	def void testUtf8WithoutEncodingNotOk () {
+		assertEquals (1, MyDslC.run("-outputDir", temporaryFolder.root.path, "models/testUTF8.mydsl"))
+	}		
+
+	@Test
 	def void testNoArgs () {
-		assertEquals (1, MyDslC.run(<String>newArrayList()))
+		assertEquals (1, MyDslC.run())
 	}
 
 	@Test
 	def void testHelp () {
-		assertEquals (0, MyDslC.run(<String>newArrayList("-help")))
+		assertEquals (0, MyDslC.run("-help"))
 	}
 
 	@Test
 	def void testNoInputFiles () {
-		assertEquals (1, MyDslC.run(<String>newArrayList("-outputDir", temporaryFolder.root.path)))
+		assertEquals (1, MyDslC.run("-outputDir", temporaryFolder.root.path))
 	}		
 
 	@Test
 	def void testInvalidInputFile () {
-		assertEquals (1, MyDslC.run(<String>newArrayList("-outputDir", temporaryFolder.root.path, "models/_test.mydsl")))
+		assertEquals (1, MyDslC.run("-outputDir", temporaryFolder.root.path, "models/_test.mydsl"))
 	}
 }
