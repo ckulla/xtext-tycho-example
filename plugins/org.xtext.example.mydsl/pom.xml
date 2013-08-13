@@ -101,6 +101,8 @@
 									<jvmArg>-Xms100m</jvmArg>
 									<jvmArg>-Xmx700m</jvmArg>
 									<jvmArg>-XX:MaxPermSize=128m</jvmArg>
+									<!--  required to read the xtext file with the correct encoding -->
+									<jvmArgs>-Dfile.encoding=ISO-8859-1</jvmArgs> 
 								</jvmArgs>
 							</jvmSettings>
 						</configuration>

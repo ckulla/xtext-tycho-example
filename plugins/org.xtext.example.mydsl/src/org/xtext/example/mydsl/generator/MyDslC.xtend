@@ -16,7 +16,7 @@ import java.util.Collection
 class MyDslC {
 
 	@Inject
-	CommandLineOptions options
+	CommandLineOptions clo
 
 	@Inject
 	IGenerator generator
@@ -35,7 +35,7 @@ class MyDslC {
 	}
 
 	def static int run(String... args) {
-		val options = new CommandLineOptions
+		val options = new CommandLineOptions()
 		if (options.parse(args)) {		
 			if (options.hasHelp) {	
 				options.printHelpMessage
@@ -43,14 +43,14 @@ class MyDslC {
 			} else {
 				val injector = new MyDslStandaloneSetup().createInjectorAndDoEMFRegistration(options)
 				val generator = injector.getInstance(MyDslC)
-				return generator.run()			
+				return generator.doRun()			
 			}
 		} else {
 			return 1
 		}
 	}
 
-	def int run () {
+	def int doRun () {
 		val resources = readResources ()
 		if (validateResources(resources)) {
 			generate(resources)			
@@ -61,7 +61,7 @@ class MyDslC {
  
 	def readResources () {
 		val rs = resourceSetProvider.get()
-		options.inputFiles.map [ f | rs.getResource(URI.createFileURI(f.canonicalPath), true) ].toSet
+		clo.inputFiles.map [ f | rs.getResource(URI.createFileURI(f.canonicalPath), true) ].toSet
 	}
 	
 	def validateResources (Collection<Resource> resources) {
@@ -76,7 +76,7 @@ class MyDslC {
 	}
 	
 	def generate (Collection<Resource> resources) {
-		fileAccess.setOutputPath(options.outputPath.canonicalPath)
+		fileAccess.setOutputPath(clo.outputPath.canonicalPath)
 		resources.forEach [
 			generator.doGenerate(it, fileAccess)
 		]

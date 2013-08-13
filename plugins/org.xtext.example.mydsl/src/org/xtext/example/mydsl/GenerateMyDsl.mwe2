@@ -30,6 +30,7 @@ Workflow {
         pathTestProject = testProject
         projectNameRt = projectName
         projectNameUi = "${projectName}.ui"
+        encoding = "ISO-8859-1"
         language = {
             uri = grammarURI
             fileExtensions = file.extensions
@@ -54,11 +55,7 @@ Workflow {
             }
 
             // The antlr parser generator fragment.
-            fragment = parser.antlr.XtextAntlrGeneratorFragment {
-            //  options = {
-            //      backtrack = true
-            //  }
-            }
+            fragment = parser.antlr.XtextAntlrGeneratorFragment {}
 
             // java-based API for validation
             fragment = validation.JavaValidatorFragment {

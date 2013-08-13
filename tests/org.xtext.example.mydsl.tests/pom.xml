@@ -60,6 +60,8 @@
 							<forkMode>once</forkMode>
 							<reportFormat>xml</reportFormat>
 							<testClassesDirectory>target/classes</testClassesDirectory>
+							<!--  set the encoding to a defined value to run the encoding tests successful -->
+							<argLine>-Dfile.encoding=US-ASCII</argLine>
 						</configuration>
 						<goals>
 							<goal>test</goal>
