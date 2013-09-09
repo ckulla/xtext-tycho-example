@@ -6,6 +6,7 @@ import static org.junit.Assert.*
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import java.io.File
+import org.xtext.example.mydsl.generator.MyDslC
 
 class MyDslCTest {
 
