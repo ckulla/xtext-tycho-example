@@ -3,7 +3,7 @@ package org.xtext.example.mydsl.generator;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionBuilder;
 
-public class CommandLineOptionsJava {
+public class CommandLineOptionsJavaHelper {
 
 	@SuppressWarnings("static-access")
 	public static Option getOutputDirOption() {

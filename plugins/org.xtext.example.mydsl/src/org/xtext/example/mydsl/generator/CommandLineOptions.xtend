@@ -7,7 +7,7 @@ import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Options
 import org.apache.commons.cli.ParseException
 import org.apache.commons.cli.Option
-import static org.xtext.example.mydsl.generator.CommandLineOptionsJava.*
+import static org.xtext.example.mydsl.generator.CommandLineOptionsJavaHelper.*
 
 class CommandLineOptions {
 	
@@ -23,8 +23,8 @@ class CommandLineOptions {
 	
 	new() {
 		options.addOption(new Option( "help", "print this message" ))
-		options.addOption(CommandLineOptionsJava.encodingOption)
-		options.addOption(CommandLineOptionsJava.outputDirOption)
+		options.addOption(CommandLineOptionsJavaHelper.encodingOption)
+		options.addOption(CommandLineOptionsJavaHelper.outputDirOption)
 	}
 	
 	def parse(String[] args) {
