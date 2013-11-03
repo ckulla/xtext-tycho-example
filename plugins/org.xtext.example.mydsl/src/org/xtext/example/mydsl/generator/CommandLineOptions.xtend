@@ -40,7 +40,7 @@ class CommandLineOptions {
 			if (line.getOptionValue(outputDirOption.getOpt()) != null) {
 				outputPath = new File(line.getOptionValue(outputDirOption.getOpt()))
 				if (outputPath.exists) {
-					inputFiles = line.argList.map [ new File (it)].toList
+					inputFiles = line.argList.map [ String s | new File (s)].toList
 					if (inputFiles.size == 0) {
 						System.err.println("No input files given")
 						return false;
