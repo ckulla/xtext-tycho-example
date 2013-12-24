@@ -5,8 +5,11 @@
 <unit id="org.eclipse.sdk.feature.group" version="4.3.1.v20130911-1000"/>
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130828-0031"/>
 <unit id="org.eclipse.egit.feature.group" version="3.0.3.201309161630-r"/>
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.3.v201309030823"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.5.0.v201312110906"/>
+<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
 </location>
 </locations>
 </target>

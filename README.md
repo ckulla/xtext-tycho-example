@@ -2,6 +2,7 @@
 
 This is a demo project showing how to build an Xtext project with tycho / maven. It features:
 
+* Project is based on Xtext and Xtend 2.5
 * Running the xtext generator mwe2 workflow from maven with help of the fornax mwe2 plugin
 * Generated files are not checked in, everything gets generated during the build and is ignored by git
 * maven clean removes all previously generated artifacts
