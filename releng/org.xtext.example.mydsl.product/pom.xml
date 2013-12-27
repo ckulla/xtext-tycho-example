@@ -24,6 +24,11 @@
 						<!--  make sure we do not include the jdt -->
 						<filter>
 							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.annotation</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
 							<id>org.eclipse.jdt.core</id>
 							<removeAll />
 						</filter>
@@ -55,7 +60,22 @@
 						</filter>
 						<filter>
 							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe2.language</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe2.launch</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
 							<id>org.eclipse.emf.mwe2.lib</id>
+							<removeAll />
+						</filter>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.emf.mwe2.runtime</id>
 							<removeAll />
 						</filter>
 						<!--  emf codegen is only required for code generation during the build -->
