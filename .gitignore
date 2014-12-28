@@ -1,5 +1,6 @@
 target/
 bin/
+.antlr*.jar
 
 # OS generated files
 .DS_Store
