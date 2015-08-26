@@ -21,6 +21,6 @@ The project is build by:
     $ cd releng/org.xtext.example.parent
     $ mvn package
 
-## Licencse
+## License
 
 Eclipse Public Licence, http://www.eclipse.org/legal/epl-v10.html
